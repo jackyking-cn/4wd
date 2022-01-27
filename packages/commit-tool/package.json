@@ -21,6 +21,7 @@
     "commit": "./bin/index.mjs"
   },
   "scripts": {
+    "lint": "eslint . --ext .mjs",
     "test": "mocha"
   },
   "type": "module",
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "chai": "^4.3.6",
+    "eslint": "^8.7.0",
     "mocha": "^9.2.0"
   }
 }
