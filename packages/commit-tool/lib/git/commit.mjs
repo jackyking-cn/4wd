@@ -45,7 +45,7 @@ export function generateMessage(type, message, issue) {
     }
 }
 
-export async function commit() {
+export async function commit(defaultMessage) {
     await check()
 
     prompt('Generate commit message', '', false)
@@ -59,6 +59,7 @@ export async function commit() {
         type: 'text',
         name: 'message',
         message: 'Enter the commit message',
+        initial: defaultMessage,
         validate: (str) => !!str || "Commit message can't be empty.",
     })
     const issue = await getValue(

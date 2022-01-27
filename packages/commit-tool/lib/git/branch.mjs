@@ -35,7 +35,7 @@ export function generateName(type, name) {
     return `${type}/${n}-${d}`
 }
 
-export async function generate() {
+export async function generate(defaultName) {
     prompt('Generate branch', '', false)
     const type = await getValue('type', {
         type: 'select',
@@ -47,6 +47,7 @@ export async function generate() {
         type: 'text',
         name: 'name',
         message: 'Enter the branch name',
+        initial: defaultName,
         validate: (str) => nameReg.test(str) || 'Branch name is invalid.',
     })
     const branchName = generateName(type, name)
