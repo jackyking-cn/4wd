@@ -58,7 +58,7 @@ export async function commit() {
     const message = await getValue('message', {
         type: 'text',
         name: 'message',
-        message: 'Please input commit message',
+        message: 'Enter the commit message',
         validate: (str) => !!str || "Commit message can't be empty.",
     })
     const issue = await getValue(
@@ -66,7 +66,7 @@ export async function commit() {
         {
             type: 'text',
             name: 'issue',
-            message: 'Please input issue number, example: 123, 124, 125',
+            message: 'Enter the issue number, example: 123, 124, 125',
             validate: (str) =>
                 str
                     ? /^[0-9]+?([, ][0-9]+)*$/.test(str) ||

@@ -46,7 +46,7 @@ export async function generate() {
     const name = await getValue('name', {
         type: 'text',
         name: 'name',
-        message: 'Please input branch name',
+        message: 'Enter the branch name',
         validate: (str) => nameReg.test(str) || 'Branch name is invalid.',
     })
     const branchName = generateName(type, name)
