@@ -4,7 +4,7 @@
   "description": "Commit tool for git.",
   "author": "jackyking-cn <jackyking.cn@gmail.com>",
   "homepage": "https://github.com/jackyking-cn/4wd/commit-tool#readme",
-  "license": "GPL-3.0 License",
+  "license": "MIT",
   "keywords": [
     "commit",
     "tool",
