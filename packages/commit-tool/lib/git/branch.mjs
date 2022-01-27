@@ -32,7 +32,7 @@ export function generateName(type, name) {
     const d = dateformat(new Date(), 'yyyymmdd')
     const n = name.toLowerCase().split(' ').join('-')
 
-    return `${type}\/${n}-${d}`
+    return `${type}/${n}-${d}`
 }
 
 export async function generate() {
