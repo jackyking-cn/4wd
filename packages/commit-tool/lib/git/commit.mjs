@@ -5,7 +5,7 @@ import { check } from './status.mjs'
 
 const messageType = {
     feat: 'new feature',
-    fix: 'fixed bug',
+    fix: 'fix bug',
     docs: 'change documentation',
     style: 'change code style',
     refactor: 'refactor code',
