@@ -1,0 +1,19 @@
+{
+  "name": "4wd",
+  "version": "0.0.1",
+  "description": "Developer kits.",
+  "author": "jackyking-cn <jackyking.cn@gmail.com>",
+  "homepage": "https://github.com/jackyking-cn/4wd#readme",
+  "license": "GPL-3.0 License",
+  "keywords": [
+    "developer",
+    "kits"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackyking-cn/4wd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jackyking-cn/4wd/issues"
+  }
+}
