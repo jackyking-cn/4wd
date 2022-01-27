@@ -2,6 +2,9 @@
   "name": "@4wd/commit-tool",
   "version": "0.0.1",
   "description": "Commit tool for git.",
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "jackyking-cn <jackyking.cn@gmail.com>",
   "homepage": "https://github.com/jackyking-cn/4wd/commit-tool#readme",
   "license": "MIT",
