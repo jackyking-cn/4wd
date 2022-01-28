@@ -1,6 +1,6 @@
 {
   "name": "@4wd/commit-tool",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Commit tool for git.",
   "publishConfig": {
     "access": "public"

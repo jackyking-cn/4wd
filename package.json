@@ -16,5 +16,8 @@
   },
   "bugs": {
     "url": "https://github.com/jackyking-cn/4wd/issues"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.20.0"
   }
 }
