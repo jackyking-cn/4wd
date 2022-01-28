@@ -62,7 +62,7 @@ export async function generate(defaultName) {
         }
 
         await execa('git', ['branch', branchName])
-        await execa('git', ['checkout', branchName]).p
+        await execa('git', ['checkout', branchName])
 
         hint(`Switched to branch '${branchName}'`)
         process.exit(0)
