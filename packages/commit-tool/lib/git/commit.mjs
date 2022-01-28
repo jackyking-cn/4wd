@@ -1,7 +1,7 @@
 import { execa } from 'execa'
 import prompts from 'prompts'
-import { empty, prompt, warn } from '../logger.mjs'
-import { check } from './status.mjs'
+import { empty, error, prompt, warn } from '../logger.mjs'
+import { getChanges } from './status.mjs'
 
 const messageType = {
     feat: 'new feature',
@@ -46,7 +46,14 @@ export function generateMessage(type, message, issue) {
 }
 
 export async function commit(defaultMessage) {
-    await check()
+    const changes = await getChanges()
+
+    if (!changes) {
+        warn('Nothing to commit.')
+        process.exit(0)
+    }
+
+    prompt('Changes for commit', changes)
 
     prompt('Generate commit message', '', false)
     const type = await getValue('type', {
@@ -85,8 +92,8 @@ export async function commit(defaultMessage) {
 
         prompt('Commit success', stdout)
         process.exit(0)
-    } catch (error) {
-        warn(error)
+    } catch (e) {
+        error(e)
         process.exit(0)
     }
 }

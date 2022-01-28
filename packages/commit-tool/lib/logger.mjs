@@ -17,7 +17,7 @@ export function hint(str) {
 }
 
 export function prompt(title, content, hasEmpty = true) {
-    log(chalk.green.bold(`> ${title}`))
+    log(chalk.green.bold(`> ${title}...`))
     content && log(content)
     hasEmpty && log()
 }

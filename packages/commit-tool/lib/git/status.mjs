@@ -1,18 +1,13 @@
 import { execa } from 'execa'
-import { prompt, warn } from '../logger.mjs'
+import { error } from '../logger.mjs'
 
-export async function check() {
+export async function getChanges() {
     try {
         const { stdout } = await execa('git', ['status', '-s'])
 
-        if (!stdout) {
-            warn('Nothing to commit.')
-            process.exit(0)
-        } else {
-            prompt('Changes for commit', stdout)
-        }
-    } catch (error) {
-        warn(error)
+        return stdout
+    } catch (e) {
+        error(e)
         process.exit(0)
     }
 }
