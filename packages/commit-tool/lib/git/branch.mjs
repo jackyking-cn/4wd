@@ -2,6 +2,7 @@ import dateformat from 'dateformat'
 import { execa } from 'execa'
 import prompts from 'prompts'
 import { empty, error, hint, prompt, warn } from '../logger.mjs'
+import { getChanges } from './status.mjs'
 
 const branchType = {
     feature: 'new feature',
@@ -36,6 +37,24 @@ export function generateName(type, name) {
 }
 
 export async function generate(defaultName) {
+    const changes = await getChanges()
+
+    if (changes) {
+        prompt('Changes not commit', changes)
+        const confirm = await getValue('confirm', {
+            type: 'confirm',
+            name: 'confirm',
+            message: 'Do you want to create new branch?',
+            initial: true,
+        })
+
+        if (!confirm) {
+            process.exit(0)
+        }
+
+        empty()
+    }
+
     prompt('Generate branch', '', false)
     const type = await getValue('type', {
         type: 'select',
