@@ -1,7 +1,7 @@
 import dateformat from 'dateformat'
 import { execa } from 'execa'
 import prompts from 'prompts'
-import { empty, hint, prompt, warn } from '../logger.mjs'
+import { empty, error, hint, prompt, warn } from '../logger.mjs'
 
 const branchType = {
     feature: 'new feature',
@@ -66,8 +66,8 @@ export async function generate(defaultName) {
 
         hint(`Switched to branch '${branchName}'`)
         process.exit(0)
-    } catch (error) {
-        warn(error)
+    } catch (e) {
+        error(e)
         process.exit(0)
     }
 }

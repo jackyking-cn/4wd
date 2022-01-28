@@ -1,6 +1,6 @@
 import { execa } from 'execa'
 import prompts from 'prompts'
-import { empty, prompt, warn } from '../logger.mjs'
+import { empty, error, prompt, warn } from '../logger.mjs'
 import { getChanges } from './status.mjs'
 
 const messageType = {
@@ -92,8 +92,8 @@ export async function commit(defaultMessage) {
 
         prompt('Commit success', stdout)
         process.exit(0)
-    } catch (error) {
-        warn(error)
+    } catch (e) {
+        error(e)
         process.exit(0)
     }
 }
