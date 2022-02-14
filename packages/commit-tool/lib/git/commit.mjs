@@ -1,6 +1,6 @@
 import { execa } from 'execa'
 import prompts from 'prompts'
-import { empty, error, prompt, warn } from '../logger.mjs'
+import { empty, error, hint, prompt, warn } from '../logger.mjs'
 import { getChanges } from './status.mjs'
 
 const messageType = {
@@ -85,12 +85,16 @@ export async function commit(defaultMessage) {
     )
     const commitMessage = generateMessage(type, message, issue)
     empty()
+    prompt('Commit changes', '', false)
 
     try {
         await execa('git', ['add', '.'])
-        const { stdout } = await execa('git', ['commit', '-am', commitMessage])
+        await execa('git', ['commit', '-am', commitMessage], {
+            stdio: 'inherit',
+        })
 
-        prompt('Commit success', stdout)
+        empty()
+        hint('Commit success')
         process.exit(0)
     } catch (e) {
         error(e)
