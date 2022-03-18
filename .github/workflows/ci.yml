@@ -6,8 +6,8 @@ jobs:
   test:
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
-        platform: [ubuntu-latest, windows-latest]
+        node-version: [16.x]
+        platform: [ubuntu-latest]
 
     name: 'Use ${{ matrix.platform }} / Node.js ${{ matrix.node-version }}'
     runs-on: ${{ matrix.platform }}
