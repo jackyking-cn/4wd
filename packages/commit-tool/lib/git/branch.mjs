@@ -1,6 +1,6 @@
-import dateformat from 'dateformat'
 import { execa } from 'execa'
 import prompts from 'prompts'
+import { dateformat } from '../common/dateformat.mjs'
 import { empty, error, hint, prompt, warn } from '../logger.mjs'
 import { getChanges } from './status.mjs'
 
