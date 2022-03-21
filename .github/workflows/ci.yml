@@ -1,0 +1,25 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        node-version: [16.x]
+        platform: [ubuntu-latest]
+
+    name: 'Use ${{ matrix.platform }} / Node.js ${{ matrix.node-version }}'
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: pnpm/action-setup@v2.2.0
+      with:
+        version: latest
+    - uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'pnpm'
+    - run: pnpm i --frozen-lockfile
+    - run: pnpm test -r
